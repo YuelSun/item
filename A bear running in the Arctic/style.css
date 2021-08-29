@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    background-color: #ccc;
+}
+
+div[class^="mountain"] {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 3840px;
+}
+
+.mountains {
+    animation: mountains-in .8s ease-out 0s 1 normal forwards;
+}
+
+.mountain-1 {
+    height: 336px;
+    background: url(img/bg1.png) repeat-x;
+    animation: moving 50s linear 0.8s infinite normal;
+    z-index: 2;
+}
+
+.mountain-2 {
+    height: 384px;
+    background: url(img/bg2.png) repeat-x;
+    animation: moving 100s linear 0.8s infinite normal;
+    z-index: 1;
+}
+
+.bear {
+    position: absolute;
+    bottom: 35px;
+    width: 200px;
+    height: 100px;
+    z-index: 3;
+    background: url(img/bear.png) no-repeat;
+    animation: bear .4s steps(8) infinite, move 3s forwards;
+}
+
+@keyframes mountains-in {
+    0% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes moving {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -3840px 0;
+    }
+}
+
+@keyframes bear {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -1600px 0;
+    }
+}
+
+@keyframes move {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
